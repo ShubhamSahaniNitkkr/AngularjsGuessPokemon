@@ -2,7 +2,8 @@
 
 > Classic AngularJS 1.x game — guess Pokemon from silhouettes with score tracking.
 
-![Screenshot](./screenshot.png)
+<img width="2240" height="1172" alt="image" src="https://github.com/user-attachments/assets/812b44a4-bc77-4708-af9a-060c57fdbe4e" />
+
 > Add `screenshot.png` in project root for preview.
 
 ## Purpose
