@@ -29,7 +29,7 @@ npm install && npm run dev
 
 ## Live Demo
 
-[https://shubhamsahaniNitkkr.github.io/old-basic-projects/projects/AngularjsGuessPokemon/](https://shubhamsahaniNitkkr.github.io/old-basic-projects/projects/AngularjsGuessPokemon/)
+[https://shubhamsahaniNitkkr.github.io/AngularjsGuessPokemon/](https://shubhamsahaniNitkkr.github.io/AngularjsGuessPokemon/)
 
 
 ## Performance & UI
