@@ -22,6 +22,24 @@
         text-align: center;
         color: grey;
         font-size: 25px;
+        min-height: 100vh;
+        position: relative;
+      }
+      body::before {
+        content: '';
+        position: fixed;
+        inset: 0;
+        background: rgba(255, 255, 255, 0.35);
+        pointer-events: none;
+        z-index: 0;
+      }
+      body > * { position: relative; z-index: 1; }
+      .guess-status {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px 16px;
+        margin: 12px 0;
       }
       h2.game-title {
         color: #7bd69b;
@@ -88,7 +106,7 @@
     </marquee>
     <h3>Guess the Pokemon Character name from above character</h3>
     <div class="guesses-left">Guesses Left :: {{guesses}}</div>
-    <div>
+    <div class="guess-status">
       <span class="incorrect-text">Incorrect Guesses ::</span>
       <span ng-repeat="letter in incorrectLetterChoosen">{{letter}} &nbsp;&nbsp;</span>
       <span class="correct-text">Correct Guesses ::</span>
