@@ -1,59 +1,103 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pokemon</title>
+    <link rel="stylesheet" href="css/responsive-base.css">
     <link href="https://fonts.googleapis.com/css?family=Cabin+Sketch" rel="stylesheet">
-     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular.min.js"></script>
-      <link rel="icon" type="image/x-icon" href="MyPic.jpg">
-     <script src="Pokemonapp.js"></script>
-     <style media="screen">
-       body{
-         font-family: 'Cabin Sketch', cursive;
-         background-image: url('wall1.jpg');
-         background-repeat: no-repeat;
-       }
-     </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular.min.js"></script>
+    <link rel="icon" type="image/x-icon" href="MyPic.jpg">
+    <script src="Pokemonapp.js"></script>
+    <style>
+      * { box-sizing: border-box; }
+      body {
+        font-family: 'Cabin Sketch', cursive;
+        background-image: url('wall1.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        margin: 0;
+        padding: 10px;
+        text-align: center;
+        color: grey;
+        font-size: 25px;
+      }
+      h2.game-title {
+        color: #7bd69b;
+        font-size: clamp(28px, 6vw, 60px);
+        padding: 5px;
+        margin: 0.5em 0;
+      }
+      h2.game-title .desc {
+        font-size: clamp(14px, 3vw, 17px);
+        color: red;
+      }
+      marquee img {
+        height: clamp(50px, 12vw, 80px);
+        width: clamp(50px, 12vw, 80px);
+      }
+      h3 { font-size: clamp(18px, 4vw, 28px); }
+      .guesses-left { color: yellow; }
+      .incorrect-text { color: red; }
+      .correct-text { color: green; }
+      .word-display { color: #800080; word-break: break-word; }
+      .guess-title { color: #0db5b5; }
+      .guess-input {
+        font-size: 20px;
+        height: 40px;
+        width: min(112px, 40vw);
+        border-radius: 10px;
+        max-width: 100%;
+      }
+      .guess-btn {
+        height: 46px;
+        font-size: 20px;
+        width: min(112px, 40vw);
+        border-radius: 10px;
+        color: grey;
+        max-width: 100%;
+      }
+      @media (max-width: 768px) {
+        body { font-size: 18px; padding: 8px; }
+        .guess-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
+      }
+    </style>
   </head>
-  <body ng-app="Pokemonapp" ng-style="body" ng-controller="GameController">
-    <h2 ng-style="heading">{ Welcome to Pokemon Game! }  <span ng-style="desc"> Using Angular js</span> </h2>
-    <marquee behavior=scroll direction="left" scrollamount="15" onmouseover="this.stop();" onmouseout="this.start();">
-      <img src="pokemons/Bulbasaur.png" height="80px" width="80px">
-      <img src="pokemons/Raichu.png" height="80px" width="80px">
-      <img src="pokemons/Ivysaur.png" height="80px" width="80px">
-      <img src="pokemons/Squirtle.png" height="80px" width="80px">
-      <img src="pokemons/Pikachu.png" height="80px" width="80px">
-      <img src="pokemons/Vulpix.png" height="80px" width="80px">
-      <img src="pokemons/Jigglypuff.png" height="80px" width="80px">
-      <img src="pokemons/Charmander.png" height="80px" width="80px">
-      <img src="pokemons/Bulbasaur.png" height="80px" width="80px">
-      <img src="pokemons/Raichu.png" height="80px" width="80px">
-      <img src="pokemons/Ivysaur.png" height="80px" width="80px">
-      <img src="pokemons/Squirtle.png" height="80px" width="80px">
-      <img src="pokemons/Pikachu.png" height="80px" width="80px">
-      <img src="pokemons/Vulpix.png" height="80px" width="80px">
-      <img src="pokemons/Jigglypuff.png" height="80px" width="80px">
-      <img src="pokemons/Charmander.png" height="80px" width="80px">
-      <img src="pokemons/Ivysaur.png" height="80px" width="80px">
-      <img src="pokemons/Squirtle.png" height="80px" width="80px">
-
-
+  <body ng-app="Pokemonapp" ng-controller="GameController">
+    <h2 class="game-title">{ Welcome to Pokemon Game! } <span class="desc">Using Angular js</span></h2>
+    <marquee behavior="scroll" direction="left" scrollamount="15" onmouseover="this.stop();" onmouseout="this.start();">
+      <img src="pokemons/Bulbasaur.png" alt="Bulbasaur">
+      <img src="pokemons/Raichu.png" alt="Raichu">
+      <img src="pokemons/Ivysaur.png" alt="Ivysaur">
+      <img src="pokemons/Squirtle.png" alt="Squirtle">
+      <img src="pokemons/Pikachu.png" alt="Pikachu">
+      <img src="pokemons/Vulpix.png" alt="Vulpix">
+      <img src="pokemons/Jigglypuff.png" alt="Jigglypuff">
+      <img src="pokemons/Charmander.png" alt="Charmander">
+      <img src="pokemons/Bulbasaur.png" alt="Bulbasaur" loading="lazy">
+      <img src="pokemons/Raichu.png" alt="Raichu" loading="lazy">
+      <img src="pokemons/Ivysaur.png" alt="Ivysaur" loading="lazy">
+      <img src="pokemons/Squirtle.png" alt="Squirtle" loading="lazy">
+      <img src="pokemons/Pikachu.png" alt="Pikachu" loading="lazy">
+      <img src="pokemons/Vulpix.png" alt="Vulpix" loading="lazy">
+      <img src="pokemons/Jigglypuff.png" alt="Jigglypuff" loading="lazy">
+      <img src="pokemons/Charmander.png" alt="Charmander" loading="lazy">
+      <img src="pokemons/Ivysaur.png" alt="Ivysaur" loading="lazy">
+      <img src="pokemons/Squirtle.png" alt="Squirtle" loading="lazy">
     </marquee>
-    <h3>Guess the Pokemon Character name from above character </h3>
-        <div ng-style="remainttext">
-          Guesses Left ::{{guesses}}
-       </div>
-
-        <div >
-        <span ng-style="incorrecttext">Incorrect Guesses ::</span>
-        <span ng-repeat="letter in incorrectLetterChoosen" >  {{letter}} &nbsp;&nbsp; </span>
-        <span ng-style="correcttext">Correct Guesses ::</span>
-        <span ng-repeat="letter in correctLetterChoosen">{{letter}}  </span>
-        </div>
-
-         <h2><span ng-style="title">You have to guess :: </span> <span ng-style="oremainttext">{{displayWord}}</span> </h2>
-         <input type="text" name="guess" ng-model="input.letter" ng-style="inputs">
-         <button ng-click="letterChoosen()" ng-style="submit" >Guess !</button>
-
+    <h3>Guess the Pokemon Character name from above character</h3>
+    <div class="guesses-left">Guesses Left :: {{guesses}}</div>
+    <div>
+      <span class="incorrect-text">Incorrect Guesses ::</span>
+      <span ng-repeat="letter in incorrectLetterChoosen">{{letter}} &nbsp;&nbsp;</span>
+      <span class="correct-text">Correct Guesses ::</span>
+      <span ng-repeat="letter in correctLetterChoosen">{{letter}}</span>
+    </div>
+    <h2><span class="guess-title">You have to guess :: </span><span class="word-display">{{displayWord}}</span></h2>
+    <div class="guess-row">
+      <input type="text" name="guess" ng-model="input.letter" class="guess-input" maxlength="1">
+      <button ng-click="letterChoosen()" class="guess-btn">Guess !</button>
+    </div>
   </body>
 </html>
